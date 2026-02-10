@@ -1,0 +1,21 @@
+{
+  "name": "csv-to-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "csv": "^6.4.1",
+    "csv-parse": "^6.1.0",
+    "csv-stringify": "^6.6.0",
+    "fs": "0.0.1-security",
+    "sqlite3": "^5.1.7",
+    "stream-transform": "^3.4.0"
+  }
+}

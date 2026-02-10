@@ -1,0 +1,1 @@
+export default "name,age,city\nAlice,30,New York\nBob,25,London"
