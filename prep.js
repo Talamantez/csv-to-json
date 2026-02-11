@@ -53,14 +53,35 @@ const report = {
 // }
 
 function processInput(obj) {
-    const myReport = Object.create(report);
+    let myReport = Object.create(report);
+    // myReport = {
+    //     id: 0,
+    //     name: '',
+    //     date: '',
+    //     city: '',
+    //     location: '',
+    //     coords: [0, 0],
+    //     address: '',
+    //     time: '',
+    //     activity: '',
+    //     detained_estimate: 0,
+    //     detained_confirmed: 0,
+    //     details: '',
+    //     krr_response: '',
+    //     source: '',
+    //     plate: '',
+    //     make_model: '',
+    //     color: '',
+    //     tabs: ''
+    // }
     // console.log(obj)
-    const myCoords = new Array(2)
+    const myCoords = new Array(2);
     Object.keys(obj).forEach(key => {
         // console.log(`${key}: ${obj[key]}`)
         if (key == "Id") {
             if (obj[key])
-                myReport.id = obj[key]
+                myReport.id = obj[key];
+                myReport.name = obj[key];
         } else if (key == "Date") {
             if (obj[key])
                 myReport.date = obj[key]
@@ -85,8 +106,10 @@ function processInput(obj) {
         } else if (key == "Time") {
             myReport.time = obj[key]
         } else if (key == "Activity") {
-            myReport.activity == obj[key];
-        } else if (key == "TD_Est") {
+            console.log(obj[key]);
+            myReport.activity = obj[key];
+        }
+        else if (key == "TD_Est") {
             myReport.detained_estimate = obj[key];
         } else if (key == "TD_Conf") {
             myReport.detained_confirmed = obj[key];
@@ -103,10 +126,11 @@ function processInput(obj) {
         } else if (key == "Color") {
             myReport.color = obj[key]
         } else if (key == "Tabs") {
-            myReport.Tabs = obj[key]
+            myReport.tabs = obj[key]
         }
     });
-    output.push(myReport)
+
+    output.push(myReport);
 }
 
 for (let entry in input) {
