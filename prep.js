@@ -13,7 +13,7 @@ const output = [];
 const report = {
     id: Number,
     name: String,
-    date: String,
+    date: Date,
     city: String,
     location: String,
     coords: [Number, Number],
@@ -31,50 +31,8 @@ const report = {
     tabs: String
 }
 
-// const input = {
-//     "Id": "106049",
-//     "Date": "12/21/2025",
-//     "City": "Everett",
-//     "Location": "",
-//     "Long": "34343",
-//     "Lat": "34",
-//     "Address": "",
-//     "Time": "",
-//     "Activity": "Patrol",
-//     "TD_Est": "0",
-//     "TD_Conf": "0",
-//     "Details": "",
-//     "KRR_Response": "",
-//     "Source": "",
-//     "Plate": "CKK0097",
-//     "Make_Model": "Nissan Rogue",
-//     "Color": "Silver",
-//     "Tabs": ""
-// }
-
 function processInput(obj) {
     let myReport = Object.create(report);
-    // myReport = {
-    //     id: 0,
-    //     name: '',
-    //     date: '',
-    //     city: '',
-    //     location: '',
-    //     coords: [0, 0],
-    //     address: '',
-    //     time: '',
-    //     activity: '',
-    //     detained_estimate: 0,
-    //     detained_confirmed: 0,
-    //     details: '',
-    //     krr_response: '',
-    //     source: '',
-    //     plate: '',
-    //     make_model: '',
-    //     color: '',
-    //     tabs: ''
-    // }
-    // console.log(obj)
     const myCoords = new Array(2);
     Object.keys(obj).forEach(key => {
         // console.log(`${key}: ${obj[key]}`)
@@ -84,7 +42,7 @@ function processInput(obj) {
                 myReport.name = obj[key];
         } else if (key == "Date") {
             if (obj[key])
-                myReport.date = obj[key]
+                myReport.date = new Date(obj[key])
         } else if (key == "City") {
             if (obj[key])
                 myReport.city = obj[key]
@@ -129,7 +87,6 @@ function processInput(obj) {
             myReport.tabs = obj[key]
         }
     });
-
     output.push(myReport);
 }
 
@@ -137,7 +94,6 @@ for (let entry in input) {
     // console.log(entry)
     processInput(input[entry])
 }
-
 
 fs.writeFile("reports.json", JSON.stringify(output), (error) => {
     if (error) {

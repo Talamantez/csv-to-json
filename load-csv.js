@@ -6,9 +6,7 @@ import JSONStream from "JSONStream";
 
 // Use stream.pipeline for proper backpressure handling and error propagation
 async function readCSV() {
-    // const parser = fs
-
-        fs.createReadStream("./cats.csv")
+    fs.createReadStream("./kittens.csv")
         // .pipe(parse({ delimiter: ",", from_line: 2 }));
         .pipe(
             parse({
