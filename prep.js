@@ -1,8 +1,3 @@
-// input file
-// interface Coords {
-//     lat: number,
-//     long: number
-// }
 import fs from 'fs';
 import myData from "./output_stream.json" with { type: "json" };
 
