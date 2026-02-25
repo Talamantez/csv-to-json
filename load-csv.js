@@ -1,12 +1,10 @@
 import { parse } from "csv-parse";
-import { stringify } from "csv-stringify";
-import { transform } from "stream-transform";
 import fs from "fs";
 import JSONStream from "JSONStream";
 
 // Use stream.pipeline for proper backpressure handling and error propagation
 async function readCSV() {
-    fs.createReadStream("./kittens.csv")
+    fs.createReadStream("C://Users//rober//Documents//Peace Love Unity//kittens.csv")
         // .pipe(parse({ delimiter: ",", from_line: 2 }));
         .pipe(
             parse({
@@ -21,19 +19,6 @@ async function readCSV() {
         .on("finish", () => {
             console.log("Streaming CSV to JSON conversion complete");
         });
-
-    // try {
-    //     // Use async iterator pattern to process rows incrementally
-    //     // This ensures proper backpressure handling and prevents memory build-up
-    //     for await (const row of parser) {
-    //         row.length = 17;
-    //         console.log(row);
-    //     }
-    //     console.log("Finished reading CSV file");
-    // } catch (error) {
-    //     console.error("Error:", error.message);
-    //     throw error;
-    // }
 }
 
 readCSV().catch((error) => {

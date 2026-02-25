@@ -82,6 +82,7 @@ function processInput(obj) {
             myReport.tabs = obj[key]
         }
     });
+    console.log(myReport.location)
     output.push(myReport);
 }
 
